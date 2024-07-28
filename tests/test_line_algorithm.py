@@ -12,7 +12,7 @@ class TestLinePartition(unittest.TestCase):
                     self.assertEqual(sum(output), axis_len)
 
     def test_some_random_big_values(self):
-        for _ in range(100):
+        for _ in range(4948):
             axis_len = random.randint(1000, 1000000)
             num_partitions = random.randint(1000, 1000000)
 
