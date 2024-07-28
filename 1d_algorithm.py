@@ -22,3 +22,9 @@ def line_partition(axis_len: int, num_partitions: int):
         partition_len_array[-1 - i] += 1
 
     return partition_len_array
+
+
+if __name__ == '__main__':
+    AXIS_LEN = int(input('Enter axis length: '))
+    NUM_PARTITIONS = int(input('Enter the number of partitions: '))
+    print(line_partition(AXIS_LEN, NUM_PARTITIONS))
