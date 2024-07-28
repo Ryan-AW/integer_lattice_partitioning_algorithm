@@ -3,7 +3,7 @@ import random
 from line_algorithm import line_partition
 
 
-class TestSomeFunction(unittest.TestCase):
+class TestLinePartition(unittest.TestCase):
     def test_all_small_values(self):
         for num_partitions in range(1, 101):
             for axis_len in range(num_partitions, 101):
