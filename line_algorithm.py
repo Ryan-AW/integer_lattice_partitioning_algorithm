@@ -13,6 +13,10 @@ def line_partition(axis_len: int, num_partitions: int):
             # set middle if both the num partitions and the grid length are odd
             partition_len_array[num_partitions//2] += 1
 
+    elif num_partitions != 2:
+        if margin & 1:
+            partition_len_array[num_partitions//2] += 1
+
     if margin and num_partitions == 2:
         partition_len_array[0] += 1
 
