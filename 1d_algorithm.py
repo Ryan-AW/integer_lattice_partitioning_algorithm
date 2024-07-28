@@ -1,6 +1,9 @@
 AXIS_LEN = int(input('Enter axis length: '))
 NUM_PARTITIONS = int(input('Enter the number of partitions: '))
 
+if NUM_PARTITIONS == 0:
+    raise ValueError('Must have at least 1 partition.')
+
 if NUM_PARTITIONS > AXIS_LEN:
     raise ValueError("the number of partitions can't be greater than the axis length")
 
