@@ -1,2 +1,2 @@
 # integer-lattice-partitioning-algorithm
-Tessellate a grid by stretching squares when isn't divisible
+Tessellate a grid by stretching squares when it isn't divisible
