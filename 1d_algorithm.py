@@ -2,6 +2,9 @@ AXIS_LEN = 10
 
 NUM_PARTITIONS = 3
 
+if NUM_PARTITIONS > AXIS_LEN:
+    raise ValueError("the number of partitions can't be greater than the axis length")
+
 partition_len, margin = divmod(AXIS_LEN, NUM_PARTITIONS)
 partition_len_array = [partition_len] * NUM_PARTITIONS
 
