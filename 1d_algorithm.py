@@ -1,6 +1,5 @@
-AXIS_LEN = 10
-
-NUM_PARTITIONS = 3
+AXIS_LEN = int(input('Enter axis length: '))
+NUM_PARTITIONS = int(input('Enter the number of partitions: '))
 
 if NUM_PARTITIONS > AXIS_LEN:
     raise ValueError("the number of partitions can't be greater than the axis length")
@@ -20,3 +19,5 @@ if margin and NUM_PARTITIONS == 2:
 for i in range(margin//2):
     partition_len_array[i] += 1
     partition_len_array[-1 - i] += 1
+
+print(partition_len_array)
