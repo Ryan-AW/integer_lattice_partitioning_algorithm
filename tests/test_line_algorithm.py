@@ -1,6 +1,6 @@
 import unittest
 import random
-from line_algorithm import line_partition
+from algorithms import line_partition
 
 
 class TestLinePartition(unittest.TestCase):
