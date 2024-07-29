@@ -29,6 +29,9 @@ def line_partition(axis_len: int, num_partitions: int):
 
 
 if __name__ == '__main__':
-    AXIS_LEN = int(input('Enter axis length: '))
-    NUM_PARTITIONS = int(input('Enter the number of partitions: '))
-    print(line_partition(AXIS_LEN, NUM_PARTITIONS))
+    print(
+        line_partition(
+            axis_len=int(input('Enter axis length: ')),
+            num_partitions=int(input('Enter the number of partitions: '))
+        )
+    )
