@@ -14,7 +14,6 @@ def generate_bitmap(filename: str, plane_xy: tuple[int, int], num_columns: int, 
     print()
     print(partition)
     print()
-    print('GENERATING BITMAP...', end='')
 
     width, height = sum(partition['horizontal']), sum(partition['vertical'])
 
@@ -31,17 +30,34 @@ def generate_bitmap(filename: str, plane_xy: tuple[int, int], num_columns: int, 
 
     img = Image.new('RGB', (width, height))
     pixels = img.load()
-    for y in range(height):
-        for x in range(width):
-            pixels[x, y] = (
-                int(bitmap[y][x][0] * 255),
-                int(bitmap[y][x][1] * 255),
-                int(bitmap[y][x][2] * 255)
-            )
+
+    try:
+        from tqdm import tqdm
+
+        for y in tqdm(range(height), desc="rows complete"):
+            for x in range(width):
+                pixels[x, y] = (
+                    int(bitmap[y][x][0] * 255),
+                    int(bitmap[y][x][1] * 255),
+                    int(bitmap[y][x][2] * 255)
+                )
+    except ImportError:
+        print('tip: install the python "tqdm" module for a progress bar!')
+        print()
+        print('GENERATING BITMAP...', end='')
+
+        for y in range(height):
+            for x in range(width):
+                pixels[x, y] = (
+                    int(bitmap[y][x][0] * 255),
+                    int(bitmap[y][x][1] * 255),
+                    int(bitmap[y][x][2] * 255)
+                )
+
+        print(' done!')
+        print()
     img.save(filename+'.bmp', 'BMP')
 
-    print(' done!')
-    print()
     print(f'SAVED AS "{filename}.bmp"')
 
 
