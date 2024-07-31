@@ -1,18 +1,18 @@
 from PIL import Image
 from colorsys import hsv_to_rgb
+from random import sample
 from algorithms.plane_algorithm import plane_partition
 
 
 def generate_colors(num_colors: int):
-    for i in range(num_colors):
-        yield hsv_to_rgb(i*(1.0/num_colors), 1.0, 1.0)
+    return sample([hsv_to_rgb(i*(1.0/num_colors), 1.0, 1.0) for i in range(num_colors)], num_colors)
 
 
 def generate_bitmap(filename: str, plane_xy: tuple[int, int], num_columns: int, num_rows: int):
     partition = plane_partition(plane_xy, num_columns, num_rows)
     width, height = sum(partition['horizontal']), sum(partition['vertical'])
 
-    color_array = list(generate_colors(len(partition['horizontal'])*len(partition['vertical'])))
+    color_array = generate_colors(len(partition['horizontal'])*len(partition['vertical']))
 
     bitmap = []
     for i, num_repeats in enumerate(partition['vertical']):
