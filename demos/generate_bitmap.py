@@ -11,7 +11,8 @@ def generate_colors(num_colors: int):
 def generate_bitmap(filename: str, plane_xy: tuple[int, int], num_columns: int, num_rows: int):
     partition = plane_partition(plane_xy, num_columns, num_rows)
 
-    print('\n'+partition)  # display the partitions' sizes
+    print()
+    print(partition)  # display the partitions' sizes
 
     width, height = sum(partition['horizontal']), sum(partition['vertical'])
 
