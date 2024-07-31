@@ -12,7 +12,9 @@ def generate_bitmap(filename: str, plane_xy: tuple[int, int], num_columns: int, 
     partition = plane_partition(plane_xy, num_columns, num_rows)
 
     print()
-    print(partition)  # display the partitions' sizes
+    print(partition)
+    print()
+    print('GENERATING BITMAP...', end='')
 
     width, height = sum(partition['horizontal']), sum(partition['vertical'])
 
@@ -37,6 +39,10 @@ def generate_bitmap(filename: str, plane_xy: tuple[int, int], num_columns: int, 
                 int(bitmap[y][x][2] * 255)
             )
     img.save(filename+'.bmp', 'BMP')
+
+    print(' done!')
+    print()
+    print(f'SAVED AS "{filename}.bmp"')
 
 
 generate_bitmap(
