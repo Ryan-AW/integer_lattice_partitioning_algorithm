@@ -1,4 +1,4 @@
-from line_algorithm import line_partition
+from algorithms import line_partition
 
 
 def plane_partition(plane_xy: tuple[int, int], num_columns: int, num_rows: int):
